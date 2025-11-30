@@ -1,0 +1,12 @@
+workspaceId: 9e7122fa-97d4-42b9-8171-c37991eb97b4
+source: web
+plugin:
+  typescriptgen:
+    outputFilePath: events.ts
+    namespace: AnalyticsEvents
+    shouldGenerateType: true
+    eventClassName: AnalyticsEvent
+    documentation: true
+events:
+- id: F53ZoV4lBswnVy_wWj8kU
+  version: 2

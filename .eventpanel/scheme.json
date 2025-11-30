@@ -1,0 +1,16 @@
+{
+  "categories" : [
+
+  ],
+  "events" : [
+    {
+      "category_ids" : [
+
+      ],
+      "description" : "User selected an answer option in a test question",
+      "id" : "F53ZoV4lBswnVy_wWj8kU",
+      "name" : "Dialog Screen Test Option Tapped"
+    }
+  ],
+  "workspace" : "Demo"
+}
