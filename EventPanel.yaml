@@ -2,7 +2,7 @@ workspaceId: 9e7122fa-97d4-42b9-8171-c37991eb97b4
 source: web
 plugin:
   typescriptgen:
-    outputFilePath: events.ts
+    outputFilePath: src/analytics/events.ts
     namespace: AnalyticsEvents
     shouldGenerateType: true
     eventClassName: AnalyticsEvent
