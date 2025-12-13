@@ -17,7 +17,7 @@ export function Footer() {
       </p>
       <div className={styles.links}>
         <a 
-          href="https://github.com/eventpanel" 
+          href="https://github.com/eventpanel/eventpanel-web-demo" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.socialLink}
