@@ -1,16 +1,294 @@
 {
   "categories" : [
-
+    {
+      "description" : "Events related to shopping and purchasing actions",
+      "id" : "94645171-1fac-4dfb-b47b-f8561c767b97",
+      "name" : "E-commerce Events"
+    },
+    {
+      "description" : "Events related to usage of specific product features",
+      "id" : "08dc316e-dd7a-43e5-be6f-5432a7e608ac",
+      "name" : "Feature Usage"
+    },
+    {
+      "description" : "Events related to a user’s first-time experience and initial setup in the product",
+      "id" : "0d1c9b82-bd43-40dc-ac74-14046a9563d2",
+      "name" : "Onboarding Events"
+    },
+    {
+      "description" : "Events related to user interactions and account activity",
+      "id" : "639f0300-ff08-4ce1-b10b-f457cab54b53",
+      "name" : "User Actions"
+    }
+  ],
+  "custom_types" : [
+    {
+      "data_type" : "STRING",
+      "name" : "Source",
+      "type" : "enum",
+      "values" : [
+        "email",
+        "ads",
+        "organic"
+      ]
+    },
+    {
+      "data_type" : "STRING",
+      "name" : "Format",
+      "type" : "enum",
+      "values" : [
+        "CSV",
+        "XLSX"
+      ]
+    }
   ],
   "events" : [
     {
       "category_ids" : [
-
+        "94645171-1fac-4dfb-b47b-f8561c767b97"
       ],
-      "description" : "User selected an answer option in a test question",
-      "id" : "F53ZoV4lBswnVy_wWj8kU",
-      "name" : "Dialog Screen Test Option Tapped"
+      "description" : "Triggered when a user adds a product to the shopping cart",
+      "id" : "hKz9uv_3eNsJiBUfmXfnN",
+      "name" : "Add to Cart",
+      "properties" : [
+        {
+          "data_type" : "FLOAT",
+          "description" : "Price of the product at the time it was added to the cart",
+          "id" : "424e061f-5d18-4f32-9fd6-0cfcdb1d4134",
+          "name" : "price",
+          "required" : true
+        },
+        {
+          "data_type" : "STRING",
+          "description" : "Unique identifier of the product",
+          "id" : "a2a4e4b2-6ba1-46a4-aa1a-12eadcde362f",
+          "name" : "productId",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "94645171-1fac-4dfb-b47b-f8561c767b97"
+      ],
+      "description" : "Triggered when a user starts the checkout process",
+      "id" : "aYlBnDDwxazpIPy2TRztm",
+      "name" : "Checkout Started",
+      "properties" : [
+        {
+          "data_type" : "OBJECT",
+          "description" : "Items in the cart",
+          "id" : "8410780f-72f9-47c1-947f-48f0231c5a5c",
+          "name" : "cart",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "08dc316e-dd7a-43e5-be6f-5432a7e608ac"
+      ],
+      "description" : "Triggered when a user exports data",
+      "id" : "t5HGiXOFMLH0pkNCIlj_J",
+      "name" : "Export Triggered",
+      "properties" : [
+        {
+          "data_type" : "Format",
+          "description" : "File format of the exported data (e.g. CSV, XLSX)",
+          "id" : "3202a6bc-af2c-47ac-931c-54b0eba92409",
+          "name" : "format",
+          "required" : false
+        },
+        {
+          "data_type" : "INTEGER",
+          "description" : "Number of rows included in the export",
+          "id" : "63903ec0-4afa-45ed-b061-013e0a497403",
+          "name" : "rowCount",
+          "required" : false
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "08dc316e-dd7a-43e5-be6f-5432a7e608ac"
+      ],
+      "description" : "Triggered when a user applies a filter",
+      "id" : "lwPg9kotZB44wy7daBnKk",
+      "name" : "Filter Applied",
+      "properties" : [
+        {
+          "data_type" : "STRING",
+          "description" : "Type or name of the applied filter",
+          "id" : "ade4fdf7-e9d1-4d31-a6a0-79dab86f0f06",
+          "name" : "filterType",
+          "required" : false
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "0d1c9b82-bd43-40dc-ac74-14046a9563d2"
+      ],
+      "description" : "Triggered when a user successfully finishes onboarding",
+      "id" : "gN_J-HqFMgOtkPVwAuY_6",
+      "name" : "Onboarding Completed",
+      "properties" : [
+        {
+          "data_type" : "STRING",
+          "description" : "Unique identifier of the user",
+          "id" : "9b0a62f1-2e28-42e4-b435-86732bb3178e",
+          "name" : "userId",
+          "required" : true
+        },
+        {
+          "data_type" : "FLOAT",
+          "description" : "Total time spent completing onboarding",
+          "id" : "fa8e8b44-2aea-41d8-ba86-ab3074803c7f",
+          "name" : "duration",
+          "required" : false
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "0d1c9b82-bd43-40dc-ac74-14046a9563d2"
+      ],
+      "description" : "Triggered when a user skips onboarding or a specific step",
+      "id" : "Rq4C3bvNMYBmmw5z3B4i2",
+      "name" : "Onboarding Skipped",
+      "properties" : [
+        {
+          "data_type" : "INTEGER",
+          "description" : "The onboarding step that was skipped",
+          "id" : "7d85019f-4f20-44ac-9d84-1d876a1fdf66",
+          "name" : "step",
+          "required" : false
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "0d1c9b82-bd43-40dc-ac74-14046a9563d2"
+      ],
+      "description" : "Triggered when a user begins the onboarding process",
+      "id" : "0AgTHisp4e38o-sKAVRVh",
+      "name" : "Onboarding Started",
+      "properties" : [
+        {
+          "data_type" : "Source",
+          "description" : "The source from which the user entered onboarding (e.g. email, ads, organic)",
+          "id" : "3f4830f3-215e-4249-aa68-3ccee4f6643d",
+          "name" : "source",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "639f0300-ff08-4ce1-b10b-f457cab54b53"
+      ],
+      "description" : "Triggered when a user views a profile page",
+      "id" : "s3UAhww-PGSm-xYsPWgjw",
+      "name" : "Profile Viewed",
+      "properties" : [
+        {
+          "data_type" : "STRING",
+          "description" : "Unique identifier of the user",
+          "id" : "9b0a62f1-2e28-42e4-b435-86732bb3178e",
+          "name" : "userId",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "94645171-1fac-4dfb-b47b-f8561c767b97"
+      ],
+      "description" : "",
+      "id" : "F4GraUPnMIfbr5FRmQMoP",
+      "name" : "Purchase Completed",
+      "properties" : [
+        {
+          "data_type" : "STRING_LIST",
+          "description" : "Unique identifier of the completed order",
+          "id" : "7bb6cbe1-57b5-4a36-8379-6044abc21409",
+          "name" : "orderIds",
+          "required" : true
+        },
+        {
+          "data_type" : "FLOAT",
+          "description" : "Final total amount paid for the order",
+          "id" : "b5fe83cd-cda5-417a-9032-557e8c18d208",
+          "name" : "total",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "08dc316e-dd7a-43e5-be6f-5432a7e608ac"
+      ],
+      "description" : "Triggered when a user performs a search",
+      "id" : "g04TqY_xJa0NLsiKuazo0",
+      "name" : "Search Used",
+      "properties" : [
+        {
+          "data_type" : "INTEGER",
+          "description" : "Number of results returned for the search query",
+          "id" : "55c5df3c-c7b8-4070-a8cc-176eb4e798f3",
+          "name" : "resultsCount",
+          "required" : true
+        },
+        {
+          "data_type" : "STRING",
+          "description" : "Search query entered by the user",
+          "id" : "e6a4f3c4-f554-49ca-aacf-30427f68bb43",
+          "name" : "query",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "639f0300-ff08-4ce1-b10b-f457cab54b53"
+      ],
+      "description" : "Triggered when a user changes application settings",
+      "id" : "Fb9oS4p0JAXLPYqAzzvok",
+      "name" : "Settings Changed",
+      "properties" : [
+        {
+          "data_type" : "STRING",
+          "description" : "Name of the setting that was changed",
+          "id" : "7d1424d8-da8f-4b5a-83a9-005ca6b9fc9f",
+          "name" : "setting",
+          "required" : true
+        },
+        {
+          "data_type" : "STRING",
+          "description" : "New value applied to the setting",
+          "id" : "c3261554-8f3b-4601-b34d-c289feb84688",
+          "name" : "value",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "category_ids" : [
+        "639f0300-ff08-4ce1-b10b-f457cab54b53"
+      ],
+      "description" : "Triggered when a user logs out of the application",
+      "id" : "vUJEB9OHB6fierwuwaPVW",
+      "name" : "User Logout",
+      "properties" : [
+        {
+          "data_type" : "DATE",
+          "description" : "Duration of the user session before logout",
+          "id" : "05daa6db-9190-43ef-be71-e122c789f229",
+          "name" : "sessionDuration",
+          "required" : true
+        }
+      ]
     }
   ],
-  "workspace" : "Demo"
+  "workspace" : "TypeScriptDemo"
 }

@@ -2,710 +2,214 @@
 
 export namespace AnalyticsEvents {
   /**
-   * Description Wxo4puohcb
+   * Events related to shopping and purchasing actions
    */
-  export namespace CategoryWxo4puohcb {
+  export namespace ECommerceEvents {
 
     /**
-     * Event Description 01g9z
-     * @param propertyCvpe1 Property description for cvpe1
+     * Triggered when a user adds a product to the shopping cart
+     * @param price Price of the product at the time it was added to the cart
+     * @param productId Unique identifier of the product
      */
-    export function event01g9z(  
-      propertyCvpe1: string | undefined,
+    export function addToCart(  
+      price: number,
+      productId: string,
     ): AnalyticsEvent {
       return {
-        name: 'Event 01g9z',
+        name: 'Add to Cart',
         parameters: {
-          property_cvpe1: propertyCvpe1,
+          price: price,
+          productId: productId,
         },
       };
     }
 
     /**
-     * Event Description 4b6bj
-     * @param propertyZy8qj Property description for zy8qj
+     * Triggered when a user starts the checkout process
+     * @param cart Items in the cart
      */
-    export function event4b6bj(  
-      propertyZy8qj: string | undefined,
+    export function checkoutStarted(  
+      cart: Record<string, unknown>,
     ): AnalyticsEvent {
       return {
-        name: 'Event 4b6bj',
+        name: 'Checkout Started',
         parameters: {
-          property_zy8qj: propertyZy8qj,
+          cart: cart,
         },
       };
     }
 
-    /**
-     * Event Description J819c
-     * @param property13dou Property description for 13dou
-     */
-    export function eventJ819c(  
-      property13dou: string | undefined,
+    export function purchaseCompleted(  
+      orderIds: string[],
+      total: number,
     ): AnalyticsEvent {
       return {
-        name: 'Event J819c',
+        name: 'Purchase Completed',
         parameters: {
-          property_13dou: property13dou,
+          orderIds: orderIds,
+          total: total,
         },
       };
     }
   }
   /**
-   * Description 1924kq46yc
+   * Events related to usage of specific product features
    */
-  export namespace Category1924kq46yc {
+  export namespace FeatureUsage {
 
     /**
-     * Event Description 1i6tc
-     * @param propertyBr3lu Property description for br3lu
+     * Triggered when a user exports data
+     * @param format File format of the exported data (e.g. CSV, XLSX)
+     * @param rowCount Number of rows included in the export
      */
-    export function event1i6tc(  
-      propertyBr3lu: string | undefined,
+    export function exportTriggered(  
+      format: Format | undefined,
+      rowCount: number | undefined,
     ): AnalyticsEvent {
       return {
-        name: 'Event 1i6tc',
+        name: 'Export Triggered',
         parameters: {
-          property_br3lu: propertyBr3lu,
+          format: format,
+          rowCount: rowCount,
         },
       };
     }
 
     /**
-     * Event Description Giyqo
-     * @param propertyLhq24 Property description for lhq24
+     * Triggered when a user applies a filter
+     * @param filterType Type or name of the applied filter
      */
-    export function eventGiyqo(  
-      propertyLhq24: string | undefined,
+    export function filterApplied(  
+      filterType: string | undefined,
     ): AnalyticsEvent {
       return {
-        name: 'Event Giyqo',
+        name: 'Filter Applied',
         parameters: {
-          property_lhq24: propertyLhq24,
+          filterType: filterType,
         },
       };
     }
 
     /**
-     * Event Description Szykh
-     * @param property48yza Property description for 48yza
+     * Triggered when a user performs a search
+     * @param resultsCount Number of results returned for the search query
+     * @param query Search query entered by the user
      */
-    export function eventSzykh(  
-      property48yza: string | undefined,
+    export function searchUsed(  
+      resultsCount: number,
+      query: string,
     ): AnalyticsEvent {
       return {
-        name: 'Event Szykh',
+        name: 'Search Used',
         parameters: {
-          property_48yza: property48yza,
+          resultsCount: resultsCount,
+          query: query,
         },
       };
     }
   }
   /**
-   * Description 84128fgejl
+   * Events related to a user’s first-time experience and initial setup in the product
    */
-  export namespace Category84128fgejl {
+  export namespace OnboardingEvents {
 
     /**
-     * Event Description 1kdxk
-     * @param propertyG41ff Property description for g41ff
+     * Triggered when a user successfully finishes onboarding
+     * @param userId Unique identifier of the user
+     * @param duration Total time spent completing onboarding
      */
-    export function event1kdxk(  
-      propertyG41ff: string | undefined,
+    export function onboardingCompleted(  
+      userId: string,
+      duration: number | undefined,
     ): AnalyticsEvent {
       return {
-        name: 'Event 1kdxk',
+        name: 'Onboarding Completed',
         parameters: {
-          property_g41ff: propertyG41ff,
+          userId: userId,
+          duration: duration,
+        },
+      };
+    }
+
+    /**
+     * Triggered when a user skips onboarding or a specific step
+     * @param step The onboarding step that was skipped
+     */
+    export function onboardingSkipped(  
+      step: number | undefined,
+    ): AnalyticsEvent {
+      return {
+        name: 'Onboarding Skipped',
+        parameters: {
+          step: step,
+        },
+      };
+    }
+
+    /**
+     * Triggered when a user begins the onboarding process
+     * @param source The source from which the user entered onboarding (e.g. email, ads, organic)
+     */
+    export function onboardingStarted(  
+      source: Source,
+    ): AnalyticsEvent {
+      return {
+        name: 'Onboarding Started',
+        parameters: {
+          source: source,
         },
       };
     }
   }
   /**
-   * Description 9l7hy4qgw8
+   * Events related to user interactions and account activity
    */
-  export namespace Category9l7hy4qgw8 {
+  export namespace UserActions {
 
     /**
-     * Event Description 2357x
-     * @param property94ldg Property description for 94ldg
+     * Triggered when a user views a profile page
+     * @param userId Unique identifier of the user
      */
-    export function event2357x(  
-      property94ldg: string | undefined,
+    export function profileViewed(  
+      userId: string,
     ): AnalyticsEvent {
       return {
-        name: 'Event 2357x',
+        name: 'Profile Viewed',
         parameters: {
-          property_94ldg: property94ldg,
+          userId: userId,
         },
       };
     }
 
     /**
-     * Event Description Mot7l
-     * @param property278ac Property description for 278ac
+     * Triggered when a user changes application settings
+     * @param setting Name of the setting that was changed
+     * @param value New value applied to the setting
      */
-    export function eventMot7l(  
-      property278ac: string | undefined,
+    export function settingsChanged(  
+      setting: string,
+      value: string,
     ): AnalyticsEvent {
       return {
-        name: 'Event Mot7l',
+        name: 'Settings Changed',
         parameters: {
-          property_278ac: property278ac,
-        },
-      };
-    }
-  }
-  /**
-   * Description Tta8a6rqx8
-   */
-  export namespace CategoryTta8a6rqx8 {
-
-    /**
-     * Event Description 2l5rf
-     * @param property5hq8l Property description for 5hq8l
-     */
-    export function event2l5rf(  
-      property5hq8l: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 2l5rf',
-        parameters: {
-          property_5hq8l: property5hq8l,
+          setting: setting,
+          value: value,
         },
       };
     }
 
     /**
-     * Event Description 3sknt
-     * @param propertyXaf19 Property description for xaf19
+     * Triggered when a user logs out of the application
+     * @param sessionDuration Duration of the user session before logout
      */
-    export function event3sknt(  
-      propertyXaf19: string | undefined,
+    export function userLogout(  
+      sessionDuration: string,
     ): AnalyticsEvent {
       return {
-        name: 'Event 3sknt',
+        name: 'User Logout',
         parameters: {
-          property_xaf19: propertyXaf19,
-        },
-      };
-    }
-
-    /**
-     * Event Description 9xrav
-     * @param propertyWb8p4 Property description for wb8p4
-     */
-    export function event9xrav(  
-      propertyWb8p4: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 9xrav',
-        parameters: {
-          property_wb8p4: propertyWb8p4,
-        },
-      };
-    }
-
-    /**
-     * Event Description Zz7sz
-     * @param property5jiu9 Property description for 5jiu9
-     */
-    export function eventZz7sz(  
-      property5jiu9: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Zz7sz',
-        parameters: {
-          property_5jiu9: property5jiu9,
-        },
-      };
-    }
-  }
-  /**
-   * Description 889acz6p5a
-   */
-  export namespace Category889acz6p5a {
-
-    /**
-     * Event Description 3p2g8
-     * @param propertyFdg1o Property description for fdg1o
-     */
-    export function event3p2g8(  
-      propertyFdg1o: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 3p2g8',
-        parameters: {
-          property_fdg1o: propertyFdg1o,
-        },
-      };
-    }
-
-    /**
-     * Event Description Hu1d0
-     * @param propertyJcyrm Property description for jcyrm
-     */
-    export function eventHu1d0(  
-      propertyJcyrm: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Hu1d0',
-        parameters: {
-          property_jcyrm: propertyJcyrm,
-        },
-      };
-    }
-
-    /**
-     * Event Description Idokz
-     * @param property7dh32 Property description for 7dh32
-     */
-    export function eventIdokz(  
-      property7dh32: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Idokz',
-        parameters: {
-          property_7dh32: property7dh32,
-        },
-      };
-    }
-  }
-  /**
-   * Description Aooc3hto74
-   */
-  export namespace CategoryAooc3hto74 {
-
-    /**
-     * Event Description 4ci6k
-     * @param propertyDk8ur Property description for dk8ur
-     */
-    export function event4ci6k(  
-      propertyDk8ur: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 4ci6k',
-        parameters: {
-          property_dk8ur: propertyDk8ur,
-        },
-      };
-    }
-
-    /**
-     * Event Description 7wxop
-     * @param propertyTob3w Property description for tob3w
-     */
-    export function event7wxop(  
-      propertyTob3w: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 7wxop',
-        parameters: {
-          property_tob3w: propertyTob3w,
-        },
-      };
-    }
-
-    /**
-     * Event Description Jlwoq
-     * @param propertyFlib4 Property description for flib4
-     */
-    export function eventJlwoq(  
-      propertyFlib4: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Jlwoq',
-        parameters: {
-          property_flib4: propertyFlib4,
-        },
-      };
-    }
-
-    /**
-     * Event Description Ose5o
-     * @param propertyK5cii Property description for k5cii
-     */
-    export function eventOse5o(  
-      propertyK5cii: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Ose5o',
-        parameters: {
-          property_k5cii: propertyK5cii,
-        },
-      };
-    }
-  }
-  /**
-   * Description 2ae7etcca1
-   */
-  export namespace Category2ae7etcca1 {
-
-    /**
-     * Event Description 5ca9d
-     * @param propertyU1afm Property description for u1afm
-     */
-    export function event5ca9d(  
-      propertyU1afm: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 5ca9d',
-        parameters: {
-          property_u1afm: propertyU1afm,
-        },
-      };
-    }
-  }
-  /**
-   * Description M2pxj9s7oh
-   */
-  export namespace CategoryM2pxj9s7oh {
-
-    /**
-     * Event Description 7v3n4
-     * @param propertyIhnli Property description for ihnli
-     */
-    export function event7v3n4(  
-      propertyIhnli: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 7v3n4',
-        parameters: {
-          property_ihnli: propertyIhnli,
-        },
-      };
-    }
-
-    /**
-     * Event Description G9p4n
-     * @param property8dd97 Property description for 8dd97
-     */
-    export function eventG9p4n(  
-      property8dd97: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event G9p4n',
-        parameters: {
-          property_8dd97: property8dd97,
-        },
-      };
-    }
-  }
-  /**
-   * Description Irauqm4i4j
-   */
-  export namespace CategoryIrauqm4i4j {
-
-    /**
-     * Event Description 8oimb
-     * @param propertyOcoei Property description for ocoei
-     */
-    export function event8oimb(  
-      propertyOcoei: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event 8oimb',
-        parameters: {
-          property_ocoei: propertyOcoei,
-        },
-      };
-    }
-  }
-  /**
-   * Description 8bl73ljziu
-   */
-  export namespace Category8bl73ljziu {
-
-    /**
-     * Event Description A6rke
-     * @param property04moo Property description for 04moo
-     */
-    export function eventA6rke(  
-      property04moo: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event A6rke',
-        parameters: {
-          property_04moo: property04moo,
-        },
-      };
-    }
-
-    /**
-     * Event Description Iv8n4
-     * @param propertyUt4cv Property description for ut4cv
-     */
-    export function eventIv8n4(  
-      propertyUt4cv: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Iv8n4',
-        parameters: {
-          property_ut4cv: propertyUt4cv,
-        },
-      };
-    }
-
-    /**
-     * Event Description Yjmfl
-     * @param propertyLtzwl Property description for ltzwl
-     */
-    export function eventYjmfl(  
-      propertyLtzwl: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Yjmfl',
-        parameters: {
-          property_ltzwl: propertyLtzwl,
-        },
-      };
-    }
-  }
-  /**
-   * Description Z08h48ybtb
-   */
-  export namespace CategoryZ08h48ybtb {
-
-    /**
-     * Event Description Arl5p
-     * @param propertyX3kqw Property description for x3kqw
-     */
-    export function eventArl5p(  
-      propertyX3kqw: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Arl5p',
-        parameters: {
-          property_x3kqw: propertyX3kqw,
-        },
-      };
-    }
-
-    /**
-     * Event Description X9dgq
-     * @param propertyAx6wb Property description for ax6wb
-     */
-    export function eventX9dgq(  
-      propertyAx6wb: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event X9dgq',
-        parameters: {
-          property_ax6wb: propertyAx6wb,
-        },
-      };
-    }
-  }
-  /**
-   * Description 9he97udtfx
-   */
-  export namespace Category9he97udtfx {
-
-    /**
-     * Event Description Ca8oo
-     * @param property7mmzi Property description for 7mmzi
-     */
-    export function eventCa8oo(  
-      property7mmzi: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Ca8oo',
-        parameters: {
-          property_7mmzi: property7mmzi,
-        },
-      };
-    }
-  }
-  /**
-   * Description 12nyse287k
-   */
-  export namespace Category12nyse287k {
-
-    /**
-     * Event Description Ccgoc
-     * @param propertyQqr5m Property description for qqr5m
-     */
-    export function eventCcgoc(  
-      propertyQqr5m: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Ccgoc',
-        parameters: {
-          property_qqr5m: propertyQqr5m,
-        },
-      };
-    }
-
-    /**
-     * Event Description Vr0pu
-     * @param propertyBa5pn Property description for ba5pn
-     */
-    export function eventVr0pu(  
-      propertyBa5pn: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Vr0pu',
-        parameters: {
-          property_ba5pn: propertyBa5pn,
-        },
-      };
-    }
-  }
-  /**
-   * Description 66sd0oc3e1
-   */
-  export namespace Category66sd0oc3e1 {
-
-    /**
-     * Event Description Goauw
-     * @param propertyFmdpz Property description for fmdpz
-     */
-    export function eventGoauw(  
-      propertyFmdpz: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Goauw',
-        parameters: {
-          property_fmdpz: propertyFmdpz,
-        },
-      };
-    }
-
-    /**
-     * Event Description V5vl3
-     * @param propertyX3kv8 Property description for x3kv8
-     */
-    export function eventV5vl3(  
-      propertyX3kv8: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event V5vl3',
-        parameters: {
-          property_x3kv8: propertyX3kv8,
-        },
-      };
-    }
-
-    /**
-     * Event Description W0uxh
-     * @param property74yrm Property description for 74yrm
-     */
-    export function eventW0uxh(  
-      property74yrm: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event W0uxh',
-        parameters: {
-          property_74yrm: property74yrm,
-        },
-      };
-    }
-  }
-  /**
-   * Description 7xykz5vkag
-   */
-  export namespace Category7xykz5vkag {
-
-    /**
-     * Event Description Ikkue
-     * @param propertyA5lly Property description for a5lly
-     */
-    export function eventIkkue(  
-      propertyA5lly: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Ikkue',
-        parameters: {
-          property_a5lly: propertyA5lly,
-        },
-      };
-    }
-
-    /**
-     * Event Description Rmzhp
-     * @param propertyMfddw Property description for mfddw
-     */
-    export function eventRmzhp(  
-      propertyMfddw: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Rmzhp',
-        parameters: {
-          property_mfddw: propertyMfddw,
-        },
-      };
-    }
-  }
-  /**
-   * Description 4gw2feayxn
-   */
-  export namespace Category4gw2feayxn {
-
-    /**
-     * Event Description It1yw
-     * @param propertyWjet2 Property description for wjet2
-     */
-    export function eventIt1yw(  
-      propertyWjet2: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event It1yw',
-        parameters: {
-          property_wjet2: propertyWjet2,
-        },
-      };
-    }
-  }
-  /**
-   * Description D7crxwvdyk
-   */
-  export namespace CategoryD7crxwvdyk {
-
-    /**
-     * Event Description Tmozm
-     * @param propertyK2qc8 Property description for k2qc8
-     */
-    export function eventTmozm(  
-      propertyK2qc8: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Tmozm',
-        parameters: {
-          property_k2qc8: propertyK2qc8,
-        },
-      };
-    }
-
-    /**
-     * Event Description Zol8b
-     * @param propertyN9gch Property description for n9gch
-     */
-    export function eventZol8b(  
-      propertyN9gch: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Event Zol8b',
-        parameters: {
-          property_n9gch: propertyN9gch,
-        },
-      };
-    }
-  }
-  export namespace Onboarding {
-
-    export function onboardingEvent(  
-      origin: Origin,
-      userId: number,
-      array: string[] | undefined,
-      createDate: string | undefined,
-    ): AnalyticsEvent {
-      return {
-        name: 'Onboarding Event',
-        parameters: {
-          origin: origin,
-          user_id: userId,
-          Array: array,
-          create_date: createDate,
+          sessionDuration: sessionDuration,
         },
       };
     }
@@ -714,8 +218,14 @@ export namespace AnalyticsEvents {
 }
 
 // Custom types for 
-export enum Origin {
-  Facebook = "Facebook"
+export enum Source {
+  Email = "email",
+  Ads = "ads",
+  Organic = "organic"
+}
+export enum Format {
+  Csv = "CSV",
+  Xlsx = "XLSX"
 }
 
 export interface AnalyticsEvent {
