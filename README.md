@@ -2,6 +2,8 @@
 
 Type-safe analytics events example using [EventPanel](https://eventpanel.net).
 
+![Screenshot](screenshots/screenshot_1.png)
+
 ## Project Structure
 
 ```
