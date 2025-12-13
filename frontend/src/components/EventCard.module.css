@@ -1,0 +1,56 @@
+.card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  border-color: var(--border-active);
+}
+
+.cyan:hover { border-color: rgba(0, 245, 212, 0.5); }
+.pink:hover { border-color: rgba(255, 0, 110, 0.5); }
+.purple:hover { border-color: rgba(131, 56, 236, 0.5); }
+.yellow:hover { border-color: rgba(255, 190, 11, 0.5); }
+.green:hover { border-color: rgba(6, 214, 160, 0.5); }
+.orange:hover { border-color: rgba(251, 86, 7, 0.5); }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.iconCyan { background: rgba(0, 245, 212, 0.15); }
+.iconPink { background: rgba(255, 0, 110, 0.15); }
+.iconPurple { background: rgba(131, 56, 236, 0.15); }
+.iconYellow { background: rgba(255, 190, 11, 0.15); }
+.iconGreen { background: rgba(6, 214, 160, 0.15); }
+.iconOrange { background: rgba(251, 86, 7, 0.15); }
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
