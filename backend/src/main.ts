@@ -1,15 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import { join } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
-  // __dirname = backend/dist, go up 2 levels to project root
-  const frontendPath = join(__dirname, '..', '..', 'frontend', 'dist');
-  app.useStaticAssets(frontendPath);
-
+  const app = await NestFactory.create(AppModule);
   await app.listen(process.env.PORT ?? 3005);
   console.log(`🚀 EventPanel Demo running at http://localhost:${process.env.PORT ?? 3005}`);
 }

@@ -1,4 +1,4 @@
-.PHONY: install build dev start clean help
+.PHONY: install build dev start clean help up
 
 # Default target
 help:

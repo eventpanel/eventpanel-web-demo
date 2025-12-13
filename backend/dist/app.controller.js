@@ -14,11 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
-const path_1 = require("path");
 let AppController = class AppController {
-    serveDemo(res) {
-        return res.sendFile((0, path_1.join)(__dirname, '..', '..', 'frontend', 'dist', 'index.html'));
-    }
     trackEvent(event) {
         console.log('\n📊 Analytics Event Tracked:');
         console.log('   Event:', event.name);
@@ -29,13 +25,6 @@ let AppController = class AppController {
     }
 };
 exports.AppController = AppController;
-__decorate([
-    (0, common_1.Get)(),
-    __param(0, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "serveDemo", null);
 __decorate([
     (0, common_1.Post)('api/track'),
     __param(0, (0, common_1.Body)()),

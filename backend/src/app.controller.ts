@@ -1,6 +1,4 @@
-import { Controller, Get, Post, Body, Res } from '@nestjs/common';
-import { Response } from 'express';
-import { join } from 'path';
+import { Controller, Post, Body } from '@nestjs/common';
 
 interface TrackEventDto {
   name: string;
@@ -9,12 +7,6 @@ interface TrackEventDto {
 
 @Controller()
 export class AppController {
-  @Get()
-  serveDemo(@Res() res: Response) {
-    // __dirname = backend/dist, go up 2 levels to project root
-    return res.sendFile(join(__dirname, '..', '..', 'frontend', 'dist', 'index.html'));
-  }
-
   @Post('api/track')
   trackEvent(@Body() event: TrackEventDto) {
     console.log('\n📊 Analytics Event Tracked:');
