@@ -1,12 +1,25 @@
-workspaceId: 9e7122fa-97d4-42b9-8171-c37991eb97b4
+workspaceId: ec9674e8-fc4a-491c-8649-2ef910aea822
 source: web
 plugin:
   typescriptgen:
-    outputFilePath: src/analytics/events.ts
-    namespace: AnalyticsEvents
+    outputFilePath: frontend/src/analytics/events.ts
     shouldGenerateType: true
     eventClassName: AnalyticsEvent
     documentation: true
+    namespace: AnalyticsEvents
 events:
-- id: F53ZoV4lBswnVy_wWj8kU
+- id: t5HGiXOFMLH0pkNCIlj_J
+- id: lwPg9kotZB44wy7daBnKk
+- id: g04TqY_xJa0NLsiKuazo0
+- id: vUJEB9OHB6fierwuwaPVW
   version: 2
+- id: Fb9oS4p0JAXLPYqAzzvok
+  version: 2
+- id: s3UAhww-PGSm-xYsPWgjw
+  version: 2
+- id: F4GraUPnMIfbr5FRmQMoP
+- id: aYlBnDDwxazpIPy2TRztm
+- id: hKz9uv_3eNsJiBUfmXfnN
+- id: Rq4C3bvNMYBmmw5z3B4i2
+- id: gN_J-HqFMgOtkPVwAuY_6
+- id: 0AgTHisp4e38o-sKAVRVh
