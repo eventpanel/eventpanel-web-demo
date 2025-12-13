@@ -5,10 +5,11 @@ import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  
-  // Serve static files from frontend/dist
-  app.useStaticAssets(join(process.cwd(), 'frontend', 'dist'));
-  
+
+  // __dirname = backend/dist, go up 2 levels to project root
+  const frontendPath = join(__dirname, '..', '..', 'frontend', 'dist');
+  app.useStaticAssets(frontendPath);
+
   await app.listen(process.env.PORT ?? 3005);
   console.log(`🚀 EventPanel Demo running at http://localhost:${process.env.PORT ?? 3005}`);
 }

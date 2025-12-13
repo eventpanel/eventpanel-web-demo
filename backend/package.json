@@ -1,0 +1,10 @@
+{
+  "name": "eventpanel-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main",
+    "start:dev": "nest start --watch"
+  }
+}
+

@@ -1,5 +1,4 @@
 import { Controller, Get, Post, Body, Res } from '@nestjs/common';
-import { AppService } from './app.service';
 import { Response } from 'express';
 import { join } from 'path';
 
@@ -10,11 +9,10 @@ interface TrackEventDto {
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
   serveDemo(@Res() res: Response) {
-    return res.sendFile(join(process.cwd(), 'frontend', 'dist', 'index.html'));
+    // __dirname = backend/dist, go up 2 levels to project root
+    return res.sendFile(join(__dirname, '..', '..', 'frontend', 'dist', 'index.html'));
   }
 
   @Post('api/track')
@@ -24,7 +22,7 @@ export class AppController {
     console.log('   Params:', JSON.stringify(event.parameters, null, 2));
     console.log('   Time:', new Date().toISOString());
     console.log('─'.repeat(40));
-    
+
     return { success: true, event };
   }
 }
