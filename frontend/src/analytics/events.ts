@@ -1,5 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
 // Generated using EventPanel — https://github.com/eventpanel/eventpanel-cli
 
 export namespace AnalyticsEvents {

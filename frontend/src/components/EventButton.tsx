@@ -18,7 +18,6 @@ export function EventButton({
   onTrack 
 }: EventButtonProps) {
   const [isTracking, setIsTracking] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleClick = async () => {
     if (isTracking) return;
@@ -26,8 +25,6 @@ export function EventButton({
     setIsTracking(true);
     try {
       await onTrack(event);
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 600);
     } finally {
       setIsTracking(false);
     }
@@ -35,7 +32,7 @@ export function EventButton({
 
   return (
     <button 
-      className={`${styles.button} ${styles[variant]} ${showSuccess ? styles.success : ''}`}
+      className={`${styles.button} ${styles[variant]}`}
       onClick={handleClick}
       disabled={isTracking}
     >
@@ -45,8 +42,6 @@ export function EventButton({
           <span key={badge} className={styles.badge}>{badge}</span>
         ))}
       </div>
-      {showSuccess && <span className={styles.checkmark}>✓</span>}
     </button>
   );
 }
-

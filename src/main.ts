@@ -6,8 +6,8 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   
-  // Serve static files from /public
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  // Serve static files from frontend/dist
+  app.useStaticAssets(join(process.cwd(), 'frontend', 'dist'));
   
   await app.listen(process.env.PORT ?? 3005);
   console.log(`🚀 EventPanel Demo running at http://localhost:${process.env.PORT ?? 3005}`);

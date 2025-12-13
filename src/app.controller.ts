@@ -14,17 +14,11 @@ export class AppController {
 
   @Get()
   serveDemo(@Res() res: Response) {
-    return res.sendFile(join(__dirname, '..', 'public', 'index.html'));
-  }
-
-  @Get('hello')
-  getHello(): string {
-    return this.appService.getHello();
+    return res.sendFile(join(process.cwd(), 'frontend', 'dist', 'index.html'));
   }
 
   @Post('api/track')
   trackEvent(@Body() event: TrackEventDto) {
-    // Log the event with nice formatting
     console.log('\n📊 Analytics Event Tracked:');
     console.log('   Event:', event.name);
     console.log('   Params:', JSON.stringify(event.parameters, null, 2));
