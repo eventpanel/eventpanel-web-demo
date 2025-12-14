@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { 
   AnalyticsService, 
   AnalyticsEvents, 
@@ -14,7 +14,9 @@ import {
   Footer, 
   EventCard, 
   EventButton, 
-  EventConsole 
+  EventConsole,
+  CodeSidebar,
+  CodeToggleButton,
 } from './components';
 import './styles/global.css';
 import styles from './App.module.css';
@@ -39,6 +41,7 @@ const initializeAnalytics = async () => {
 function App() {
   const { track } = useAnalytics();
   const { events, clearHistory } = useEventHistory();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     initializeAnalytics();
@@ -156,6 +159,13 @@ function App() {
       </main>
 
       <Footer />
+
+      {/* Code Sidebar */}
+      <CodeToggleButton onClick={() => setIsSidebarOpen(true)} />
+      <CodeSidebar 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+      />
     </div>
   );
 }
