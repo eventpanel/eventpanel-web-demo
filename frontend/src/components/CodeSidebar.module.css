@@ -20,8 +20,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 520px;
-  max-width: 90vw;
+  width: 620px;
+  max-width: 95vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -127,6 +127,7 @@
   flex: 1;
   overflow: auto;
   padding: var(--space-lg);
+  padding-right: 0;
 }
 
 .pre {
