@@ -26,7 +26,7 @@ export function Footer() {
         </a>
         <span className={styles.separator}>•</span>
         <a 
-          href="https://eventpanel.net/docs" 
+          href="https://eventpanel.net/docs/codegen/web" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.socialLink}
