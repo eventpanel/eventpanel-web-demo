@@ -1,10 +1,11 @@
 import styles from './Header.module.css';
+import logo from '../assets/Logo.png';
 
 export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src="/Logo.png" alt="EventPanel" className={styles.logoImg} />
+        <img src={logo} alt="EventPanel" className={styles.logoImg} />
       </div>
       <p className={styles.tagline}>
         Type-safe analytics events with <span className={styles.highlight}>React</span> + <span className={styles.highlight}>TypeScript</span>. 
