@@ -1,8 +1,7 @@
 import { Highlight, themes } from 'prism-react-renderer';
 import styles from './CodeSidebar.module.css';
 
-const eventsCode = `// Generated using EventPanel
-// https://github.com/eventpanel/eventpanel-cli
+const eventsCode = `// Generated using EventPanel — https://github.com/eventpanel/eventpanel-cli
 
 export namespace AnalyticsEvents {
   /**
@@ -12,7 +11,7 @@ export namespace AnalyticsEvents {
 
     /**
      * Triggered when a user adds a product to the shopping cart
-     * @param price Price of the product
+     * @param price Price of the product at the time it was added to the cart
      * @param productId Unique identifier of the product
      */
     export function addToCart(  
@@ -56,23 +55,72 @@ export namespace AnalyticsEvents {
       };
     }
   }
-
   /**
-   * Events related to user's first-time experience
+   * Events related to usage of specific product features
    */
-  export namespace OnboardingEvents {
+  export namespace FeatureUsage {
 
-    export function onboardingStarted(  
-      source: Source,
+    /**
+     * Triggered when a user exports data
+     * @param format File format of the exported data (e.g. CSV, XLSX)
+     * @param rowCount Number of rows included in the export
+     */
+    export function exportTriggered(  
+      format: Format | undefined,
+      rowCount: number | undefined,
     ): AnalyticsEvent {
       return {
-        name: 'Onboarding Started',
+        name: 'Export Triggered',
         parameters: {
-          source: source,
+          format: format,
+          rowCount: rowCount,
         },
       };
     }
 
+    /**
+     * Triggered when a user applies a filter
+     * @param filterType Type or name of the applied filter
+     */
+    export function filterApplied(  
+      filterType: string | undefined,
+    ): AnalyticsEvent {
+      return {
+        name: 'Filter Applied',
+        parameters: {
+          filterType: filterType,
+        },
+      };
+    }
+
+    /**
+     * Triggered when a user performs a search
+     * @param resultsCount Number of results returned for the search query
+     * @param query Search query entered by the user
+     */
+    export function searchUsed(  
+      resultsCount: number,
+      query: string,
+    ): AnalyticsEvent {
+      return {
+        name: 'Search Used',
+        parameters: {
+          resultsCount: resultsCount,
+          query: query,
+        },
+      };
+    }
+  }
+  /**
+   * Events related to a user’s first-time experience and initial setup in the product
+   */
+  export namespace OnboardingEvents {
+
+    /**
+     * Triggered when a user successfully finishes onboarding
+     * @param userId Unique identifier of the user
+     * @param duration Total time spent completing onboarding
+     */
     export function onboardingCompleted(  
       userId: string,
       duration: number | undefined,
@@ -85,13 +133,46 @@ export namespace AnalyticsEvents {
         },
       };
     }
-  }
 
+    /**
+     * Triggered when a user skips onboarding or a specific step
+     * @param step The onboarding step that was skipped
+     */
+    export function onboardingSkipped(  
+      step: number | undefined,
+    ): AnalyticsEvent {
+      return {
+        name: 'Onboarding Skipped',
+        parameters: {
+          step: step,
+        },
+      };
+    }
+
+    /**
+     * Triggered when a user begins the onboarding process
+     * @param source The source from which the user entered onboarding (e.g. email, ads, organic)
+     */
+    export function onboardingStarted(  
+      source: Source,
+    ): AnalyticsEvent {
+      return {
+        name: 'Onboarding Started',
+        parameters: {
+          source: source,
+        },
+      };
+    }
+  }
   /**
-   * Events related to user interactions
+   * Events related to user interactions and account activity
    */
   export namespace UserActions {
 
+    /**
+     * Triggered when a user views a profile page
+     * @param userId Unique identifier of the user
+     */
     export function profileViewed(  
       userId: string,
     ): AnalyticsEvent {
@@ -103,6 +184,11 @@ export namespace AnalyticsEvents {
       };
     }
 
+    /**
+     * Triggered when a user changes application settings
+     * @param setting Name of the setting that was changed
+     * @param value New value applied to the setting
+     */
     export function settingsChanged(  
       setting: string,
       value: string,
@@ -115,20 +201,41 @@ export namespace AnalyticsEvents {
         },
       };
     }
+
+    /**
+     * Triggered when a user logs out of the application
+     * @param sessionDuration Duration of the user session before logout
+     */
+    export function userLogout(  
+      sessionDuration: string,
+    ): AnalyticsEvent {
+      return {
+        name: 'User Logout',
+        parameters: {
+          sessionDuration: sessionDuration,
+        },
+      };
+    }
   }
+
 }
 
-// Custom types
+// Custom types for 
 export enum Source {
   Email = "email",
   Ads = "ads",
   Organic = "organic"
 }
+export enum Format {
+  Csv = "CSV",
+  Xlsx = "XLSX"
+}
 
 export interface AnalyticsEvent {
   name: string;
   parameters: Record<string, unknown>;
-}`;
+}
+`;
 
 interface CodeSidebarProps {
   isOpen: boolean;

@@ -101,7 +101,7 @@
   margin-bottom: var(--space-xs);
   background: var(--bg-secondary);
   border-radius: var(--radius-sm);
-  animation: slideIn 0.3s ease forwards;
+  animation: slideIn 0.15s ease forwards;
   opacity: 0;
   flex-wrap: wrap;
 }

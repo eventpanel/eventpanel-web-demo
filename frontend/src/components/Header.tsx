@@ -4,9 +4,9 @@ import logo from '../assets/Logo.png';
 export function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
+      <a href="https://eventpanel.net" target="_blank" rel="noopener noreferrer" className={styles.logo}>
         <img src={logo} alt="EventPanel" className={styles.logoImg} />
-      </div>
+      </a>
       <p className={styles.tagline}>
         Type-safe analytics events with <span className={styles.highlight}>React</span> + <span className={styles.highlight}>TypeScript</span>. 
         Click the buttons below to track events through multiple providers.
