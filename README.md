@@ -2,6 +2,8 @@
 
 Type-safe analytics events example using [EventPanel](https://eventpanel.net).
 
+> 🚀 **[View Live Demo](https://eventpanel.github.io/eventpanel-web-demo/)** — Try it in your browser!
+
 ![Screenshot](screenshots/screenshot_1.png)
 
 ## Project Structure
