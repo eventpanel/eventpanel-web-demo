@@ -20,7 +20,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 620px;
+  width: 720px;
   max-width: 95vw;
   height: 100vh;
   display: flex;
@@ -126,8 +126,7 @@
 .codeContainer {
   flex: 1;
   overflow: auto;
-  padding: var(--space-lg);
-  padding-right: 0;
+  padding: var(--space-lg) 16px;
 }
 
 .pre {
@@ -135,6 +134,8 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   line-height: 1.7;
+  display: inline-block;
+  min-width: 100%;
 }
 
 .code {
@@ -144,8 +145,7 @@
 .line {
   display: flex;
   min-height: 1.7em;
-  padding: 0 var(--space-sm);
-  margin: 0 calc(var(--space-sm) * -1);
+  padding: 0 var(--space-xl) 0 var(--space-sm);
   border-radius: var(--radius-sm);
 }
 
@@ -156,7 +156,7 @@
 .lineNumber {
   display: inline-block;
   width: 3rem;
-  padding-right: var(--space-lg);
+  padding-right: var(--space-md);
   text-align: right;
   color: var(--text-muted);
   user-select: none;
