@@ -327,7 +327,7 @@ export function CodeSidebar({ isOpen, onClose }: CodeSidebarProps) {
             </span>
           </div>
           <a 
-            href="https://github.com/nicosantux/eventpanel-cli" 
+            href="https://github.com/eventpanel/eventpanel-web-demo/blob/main/frontend/src/analytics/events.ts" 
             target="_blank" 
             rel="noopener noreferrer"
             className={styles.link}
