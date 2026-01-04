@@ -1,11 +1,11 @@
-workspaceId: ec9674e8-fc4a-491c-8649-2ef910aea822
+workspaceId: c9329bd4-bf2b-485b-a20a-a8030397cba9
 source: web
 plugin:
   typescriptgen:
     outputFilePath: frontend/src/analytics/events.ts
     shouldGenerateType: true
-    eventClassName: AnalyticsEvent
     documentation: true
+    eventClassName: AnalyticsEvent
     namespace: AnalyticsEvents
 events:
 - id: t5HGiXOFMLH0pkNCIlj_J
