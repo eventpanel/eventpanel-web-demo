@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "types": ["jest", "@types/jest"],
+    "verbatimModuleSyntax": false,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./tests"]
+  },
+  "include": [
+    "tests/**/*",
+    "tests/globals.d.ts"
+  ]
+}
+

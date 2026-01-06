@@ -1,0 +1,26 @@
+workspaceId: c9329bd4-bf2b-485b-a20a-a8030397cba9
+source: web
+generationMode: test
+plugin:
+  typescriptgen:
+    outputFilePath: analytics/events.ts
+    shouldGenerateType: true
+    documentation: true
+    eventClassName: AnalyticsEvent
+    namespace: AnalyticsEvents
+events:
+- id: t5HGiXOFMLH0pkNCIlj_J
+- id: lwPg9kotZB44wy7daBnKk
+- id: g04TqY_xJa0NLsiKuazo0
+- id: vUJEB9OHB6fierwuwaPVW
+  version: 2
+- id: Fb9oS4p0JAXLPYqAzzvok
+  version: 2
+- id: s3UAhww-PGSm-xYsPWgjw
+  version: 2
+- id: F4GraUPnMIfbr5FRmQMoP
+- id: aYlBnDDwxazpIPy2TRztm
+- id: hKz9uv_3eNsJiBUfmXfnN
+- id: Rq4C3bvNMYBmmw5z3B4i2
+- id: gN_J-HqFMgOtkPVwAuY_6
+- id: 0AgTHisp4e38o-sKAVRVh
